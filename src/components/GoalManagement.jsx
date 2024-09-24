@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { getGoals, updateProgress, deleteGoal } from '../api/api.js';
 import { jwtDecode } from 'jwt-decode';
 import Layout from './Layout.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const GoalManagement = () => {
+    // data states initiated
     const [goals, setGoals] = useState([]);
     const [selectedGoalId, setSelectedGoalId] = useState('');
     const [progress, setProgress] = useState('');
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true); // Loading state
+
+    const navigate = useNavigate();
 
     // Fetch goals on component mount
     useEffect(() => {
@@ -46,6 +50,7 @@ const GoalManagement = () => {
             setProgress('');
             setSelectedGoalId('');
             setError(null);
+            navigate('/dashboard');
         } catch (err) {
             console.log(err);
             setError(err.response.data.error || 'Failed to update progress');
@@ -56,6 +61,7 @@ const GoalManagement = () => {
     const handleDeleteGoal = async (goalId) => {
         try {
             await deleteGoal(goalId);
+            alert("Goal deleted successfully");
             setGoals(goals.filter((goal) => goal._id !== goalId));
         } catch (err) {
             setError(err.response.data.error || 'Failed to delete goal');
