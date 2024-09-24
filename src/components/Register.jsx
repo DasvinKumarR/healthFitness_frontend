@@ -22,11 +22,11 @@ const Register = () => {
 
         try {
             await registerUser(formData);
-            prompt('Registration successful! Please check your email to activate your account.');
+            alert('Registration successful! Please check your email to activate your account.');
             navigate("/login");
         } catch (error) {
             console.error(error);
-            prompt('Registration failed. Please try again.');
+            alert('Registration failed. Please try again.');
         }
     };
 

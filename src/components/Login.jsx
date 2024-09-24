@@ -15,14 +15,14 @@ const Login = () => {
     try {
       const response = await loginUser(formData);
       localStorage.setItem('token', response.data.token); // Store token for future requests
-      prompt('Login successful!');
+      alert('Login successful!');
       navigate("/dashboard"); // Navigate after successful login
     } catch (error) {
       if(error.response.status === 403){
-        prompt('User not registered.');
+        alert('User not registered.');
       }else{
         console.log(error)
-        prompt('Invalid Credentials / Login failed');
+        alert('Invalid Credentials / Login failed');
       }
       
     }

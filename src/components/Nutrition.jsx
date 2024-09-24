@@ -39,7 +39,7 @@ const Nutrition = () => {
         try {
             await deleteFoodData(id);
             setNutritionData((prevData) => prevData.filter(item => item._id !== id));
-            prompt('Nutrition entry deleted successfully!');
+            alert('Nutrition entry deleted successfully!');
         } catch (err) {
             console.error(err);
             setError('Failed to delete nutrition entry.');
