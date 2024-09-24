@@ -55,7 +55,7 @@ const ProfileSettings = () => {
         e.preventDefault();
         try {
             await updateUserData(userId, userData); // Send updated data to your API
-            alert('Profile updated successfully!');
+            prompt('Profile updated successfully!');
         } catch (err) {
             console.error(err);
             setError('Failed to update profile.');

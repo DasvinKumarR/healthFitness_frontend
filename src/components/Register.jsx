@@ -16,17 +16,17 @@ const Register = () => {
 
         // Check password length
         if (formData.password.length < 6) {
-            alert('Password must be at least 6 characters long.');
+            prompt('Password must be at least 6 characters long.');
             return; // Prevent form submission
         }
 
         try {
             await registerUser(formData);
-            alert('Registration successful! Please check your email to activate your account.');
+            prompt('Registration successful! Please check your email to activate your account.');
             navigate("/login");
         } catch (error) {
             console.error(error);
-            alert('Registration failed. Please try again.');
+            prompt('Registration failed. Please try again.');
         }
     };
 

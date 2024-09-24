@@ -16,11 +16,11 @@ const ResetPassword = () => {
     }
     try {
       await resetPassword(token, { newPassword: newPassword }); // Call the API to reset password
-      alert("Password has been reset! You can now login.");
+      prompt("Password has been reset! You can now login.");
       setTimeout(() => navigate('/login'), 2000); // Redirect to login after 3 seconds
     } catch (error) {
       console.error(error);
-      alert("Error resetting password. Please try again.");
+      prompt("Error resetting password. Please try again.");
     }
   };
 
