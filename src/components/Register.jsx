@@ -16,7 +16,7 @@ const Register = () => {
 
         // Check password length
         if (formData.password.length < 6) {
-            prompt('Password must be at least 6 characters long.');
+            alert('Password must be at least 6 characters long.');
             return; // Prevent form submission
         }
 
