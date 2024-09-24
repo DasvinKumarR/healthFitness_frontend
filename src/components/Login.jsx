@@ -19,7 +19,7 @@ const Login = () => {
       navigate("/dashboard"); // Navigate after successful login
     } catch (error) {
       if(error.response.status === 403){
-        alert('User not registered.');
+        alert('User not registered / Account not activated');
       }else{
         console.log(error)
         alert('Invalid Credentials / Login failed');
